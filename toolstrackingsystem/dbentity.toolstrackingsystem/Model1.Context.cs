@@ -28,5 +28,6 @@ namespace dbentity.toolstrackingsystem
         public virtual DbSet<Sys_Menu_Info> Sys_Menu_Info { get; set; }
         public virtual DbSet<Sys_User_Role> Sys_User_Role { get; set; }
         public virtual DbSet<Sys_User_Info> Sys_User_Info { get; set; }
+        public virtual DbSet<t_PersonInfo> t_PersonInfo { get; set; }
     }
 }

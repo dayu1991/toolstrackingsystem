@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="MenuID" />
           </Key>
-          <Property Name="MenuID" Type="bigint" Nullable="false" />
+          <Property Name="MenuID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MenuName" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="GroupCode" Type="varchar" MaxLength="16" />
           <Property Name="NavigationTitle" Type="varchar" MaxLength="32" />
@@ -25,7 +25,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserCode" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="96" />
           <Property Name="PassWord" Type="varchar" MaxLength="128" />
@@ -35,16 +35,30 @@
         </EntityType>
         <EntityType Name="Sys_User_Role">
           <Key>
-            <PropertyRef Name="RoleCode" />
+            <PropertyRef Name="RoleID" />
           </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleCode" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="UserCode" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="MenuID" Type="varchar" MaxLength="512" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_PersonInfo">
+          <Key>
+            <PropertyRef Name="PersonCode" />
+          </Key>
+          <Property Name="PersonID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonCode" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="PersonName" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="RFID" Type="varchar" MaxLength="64" />
+          <Property Name="Remarks" Type="varchar" MaxLength="512" />
+          <Property Name="OptionPerson" Type="varchar" MaxLength="32" />
+          <Property Name="IsReceive" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityContainer Name="cangku_manage_dbModelStoreContainer">
           <EntitySet Name="Sys_Menu_Info" EntityType="Self.Sys_Menu_Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_User_Info" EntityType="Self.Sys_User_Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_User_Role" EntityType="Self.Sys_User_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_PersonInfo" EntityType="Self.t_PersonInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -54,6 +68,7 @@
           <EntitySet Name="Sys_Menu_Info" EntityType="cangku_manage_dbModel.Sys_Menu_Info" />
           <EntitySet Name="Sys_User_Role" EntityType="cangku_manage_dbModel.Sys_User_Role" />
           <EntitySet Name="Sys_User_Info" EntityType="cangku_manage_dbModel.Sys_User_Info" />
+          <EntitySet Name="t_PersonInfo" EntityType="cangku_manage_dbModel.t_PersonInfo" />
         </EntityContainer>
         <EntityType Name="Sys_Menu_Info">
           <Key>
@@ -73,11 +88,12 @@
         </EntityType>
         <EntityType Name="Sys_User_Role">
           <Key>
-            <PropertyRef Name="RoleCode" />
+            <PropertyRef Name="RoleID" />
           </Key>
           <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="UserCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="MenuID" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Sys_User_Info">
           <Key>
@@ -90,6 +106,18 @@
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Int32" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="t_PersonInfo">
+          <Key>
+            <PropertyRef Name="PersonCode" />
+          </Key>
+          <Property Name="PersonID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonCode" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="PersonName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="RFID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="OptionPerson" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="IsReceive" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -117,6 +145,7 @@
           <EntitySetMapping Name="Sys_User_Role">
             <EntityTypeMapping TypeName="cangku_manage_dbModel.Sys_User_Role">
               <MappingFragment StoreEntitySet="Sys_User_Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
                 <ScalarProperty Name="UserCode" ColumnName="UserCode" />
                 <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
@@ -133,6 +162,19 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserCode" ColumnName="UserCode" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_PersonInfo">
+            <EntityTypeMapping TypeName="cangku_manage_dbModel.t_PersonInfo">
+              <MappingFragment StoreEntitySet="t_PersonInfo">
+                <ScalarProperty Name="IsReceive" ColumnName="IsReceive" />
+                <ScalarProperty Name="OptionPerson" ColumnName="OptionPerson" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="RFID" ColumnName="RFID" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

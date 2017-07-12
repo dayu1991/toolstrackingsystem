@@ -17,6 +17,7 @@ namespace toolstrackingsystem
 {
     public partial class FormMain : Office2007RibbonForm
     {
+        private Sys_User_Info userInfo = MemoryCache.Default.Get("userinfo") as Sys_User_Info;
         public FormMain()
         {
             this.EnableGlass = false;
@@ -39,14 +40,15 @@ namespace toolstrackingsystem
             rpanel.Dock = DockStyle.Fill;
             tabItem.Panel = rpanel;
             ribbonControl1.Controls.Add(rpanel);
+            ribbonControl1.TitleText = "北京动车段工具管理应用系统v1.1[" + userInfo.UserName + "]";
             this.ribbonControl1.Items.Add(tabItem);
             RibbonBar rb = new RibbonBar();
 
             ButtonItem bi = new ButtonItem("bi");
             bi.Text = "用户管理";
-            //string path = Path.Combine(Application.StartupPath, "image/manage.icon");
-            //Icon icon = new Icon(path);
-            //bi.Icon = icon;
+            string path = "../../image/manage.ico";
+            bi.Icon = new Icon(path);
+            bi.ImagePosition = eImagePosition.Top;
             rb.Items.Add(bi);
             rpanel.Controls.Add(rb);
             #endregion

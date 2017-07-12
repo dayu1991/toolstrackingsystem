@@ -12,11 +12,14 @@ namespace dbentity.toolstrackingsystem
     using System;
     using System.Collections.Generic;
     
-    public partial class Sys_User_Role
+    public partial class t_PersonInfo
     {
-        public string RoleCode { get; set; }
-        public string UserCode { get; set; }
-        public string MenuID { get; set; }
-        public int RoleID { get; set; }
+        public long PersonID { get; set; }
+        public string PersonCode { get; set; }
+        public string PersonName { get; set; }
+        public string RFID { get; set; }
+        public string Remarks { get; set; }
+        public string OptionPerson { get; set; }
+        public string IsReceive { get; set; }
     }
 }

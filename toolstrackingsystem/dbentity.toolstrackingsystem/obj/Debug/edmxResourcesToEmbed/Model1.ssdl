@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="MenuID" />
     </Key>
-    <Property Name="MenuID" Type="bigint" Nullable="false" />
+    <Property Name="MenuID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MenuName" Type="varchar" MaxLength="32" Nullable="false" />
     <Property Name="GroupCode" Type="varchar" MaxLength="16" />
     <Property Name="NavigationTitle" Type="varchar" MaxLength="32" />
@@ -20,7 +20,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserCode" Type="varchar" MaxLength="32" Nullable="false" />
     <Property Name="UserName" Type="varchar" MaxLength="96" />
     <Property Name="PassWord" Type="varchar" MaxLength="128" />
@@ -30,15 +30,29 @@
   </EntityType>
   <EntityType Name="Sys_User_Role">
     <Key>
-      <PropertyRef Name="RoleCode" />
+      <PropertyRef Name="RoleID" />
     </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoleCode" Type="varchar" MaxLength="32" Nullable="false" />
     <Property Name="UserCode" Type="varchar" MaxLength="32" Nullable="false" />
     <Property Name="MenuID" Type="varchar" MaxLength="512" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_PersonInfo">
+    <Key>
+      <PropertyRef Name="PersonCode" />
+    </Key>
+    <Property Name="PersonID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonCode" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="PersonName" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="RFID" Type="varchar" MaxLength="64" />
+    <Property Name="Remarks" Type="varchar" MaxLength="512" />
+    <Property Name="OptionPerson" Type="varchar" MaxLength="32" />
+    <Property Name="IsReceive" Type="varchar" MaxLength="1" Nullable="false" />
   </EntityType>
   <EntityContainer Name="cangku_manage_dbModelStoreContainer">
     <EntitySet Name="Sys_Menu_Info" EntityType="Self.Sys_Menu_Info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sys_User_Info" EntityType="Self.Sys_User_Info" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sys_User_Role" EntityType="Self.Sys_User_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_PersonInfo" EntityType="Self.t_PersonInfo" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

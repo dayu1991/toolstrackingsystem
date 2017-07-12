@@ -21,6 +21,7 @@
     <EntitySetMapping Name="Sys_User_Role">
       <EntityTypeMapping TypeName="cangku_manage_dbModel.Sys_User_Role">
         <MappingFragment StoreEntitySet="Sys_User_Role">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="MenuID" ColumnName="MenuID" />
           <ScalarProperty Name="UserCode" ColumnName="UserCode" />
           <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
@@ -37,6 +38,19 @@
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserCode" ColumnName="UserCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_PersonInfo">
+      <EntityTypeMapping TypeName="cangku_manage_dbModel.t_PersonInfo">
+        <MappingFragment StoreEntitySet="t_PersonInfo">
+          <ScalarProperty Name="IsReceive" ColumnName="IsReceive" />
+          <ScalarProperty Name="OptionPerson" ColumnName="OptionPerson" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="RFID" ColumnName="RFID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PersonCode" ColumnName="PersonCode" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

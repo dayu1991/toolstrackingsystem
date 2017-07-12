@@ -4,6 +4,7 @@
     <EntitySet Name="Sys_Menu_Info" EntityType="cangku_manage_dbModel.Sys_Menu_Info" />
     <EntitySet Name="Sys_User_Role" EntityType="cangku_manage_dbModel.Sys_User_Role" />
     <EntitySet Name="Sys_User_Info" EntityType="cangku_manage_dbModel.Sys_User_Info" />
+    <EntitySet Name="t_PersonInfo" EntityType="cangku_manage_dbModel.t_PersonInfo" />
   </EntityContainer>
   <EntityType Name="Sys_Menu_Info">
     <Key>
@@ -23,11 +24,12 @@
   </EntityType>
   <EntityType Name="Sys_User_Role">
     <Key>
-      <PropertyRef Name="RoleCode" />
+      <PropertyRef Name="RoleID" />
     </Key>
     <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
     <Property Name="UserCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
     <Property Name="MenuID" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="Sys_User_Info">
     <Key>
@@ -40,5 +42,17 @@
     <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
     <Property Name="IsActive" Type="Int32" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="t_PersonInfo">
+    <Key>
+      <PropertyRef Name="PersonCode" />
+    </Key>
+    <Property Name="PersonID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonCode" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="PersonName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="RFID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="OptionPerson" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="IsReceive" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>
