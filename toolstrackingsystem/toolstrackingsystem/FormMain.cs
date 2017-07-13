@@ -33,7 +33,7 @@ namespace toolstrackingsystem
             //获取用户信息
             Sys_User_Info userInfo = MemoryCache.Default.Get("userinfo") as Sys_User_Info;
             label_login_user.Text = userInfo.UserName;
-            #region 手动添加菜单项
+            #region 手动添加菜单项test
             RibbonTabItem tabItem = new RibbonTabItem();
             tabItem.Text = "基础数据";
             RibbonPanel rpanel = new RibbonPanel();
