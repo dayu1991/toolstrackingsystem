@@ -14,11 +14,13 @@ using System.Runtime.Caching;
 using Microsoft.Practices.Unity;
 using System.Configuration;
 using Microsoft.Practices.Unity.Configuration;
+using log4net;
 
 namespace toolstrackingsystem
 {
     public partial class FormLogin : Office2007Form
     {
+        ILog logger = log4net.LogManager.GetLogger(typeof(FormLogin));
         private IUserManageService _userManageService;
         public FormLogin()
         {
@@ -40,27 +42,34 @@ namespace toolstrackingsystem
                 MessageBox.Show("密码不能为空");
                 return;
             }
-            //登录成功后，登录窗体关闭，主窗体打开
-            Sys_User_Info userInfo = new Sys_User_Info();
-            userInfo = _userManageService.GetUserInfo(UserCode, Pass);
-            if (userInfo != null)
-            {
-                ObjectCache oCache = MemoryCache.Default;
-                Sys_User_Info fileContents = oCache["userinfo"] as Sys_User_Info;
-                if (fileContents == null)
+            try
+            { 
+                //登录成功后，登录窗体关闭，主窗体打开
+                Sys_User_Info userInfo = new Sys_User_Info();
+                userInfo = _userManageService.GetUserInfo(UserCode, Pass);
+                if (userInfo != null)
                 {
-                    CacheItemPolicy policy = new CacheItemPolicy();
-                    //policy.AbsoluteExpiration = DateTime.Now.AddMinutes(120);//取得或设定值，这个值会指定是否应该在指定期间过后清除
-                    fileContents = userInfo; //这里赋值;
-                    oCache.Set("userinfo", fileContents, policy);
+                    ObjectCache oCache = MemoryCache.Default;
+                    Sys_User_Info fileContents = oCache["userinfo"] as Sys_User_Info;
+                    if (fileContents == null)
+                    {
+                        CacheItemPolicy policy = new CacheItemPolicy();
+                        //policy.AbsoluteExpiration = DateTime.Now.AddMinutes(120);//取得或设定值，这个值会指定是否应该在指定期间过后清除
+                        fileContents = userInfo; //这里赋值;
+                        oCache.Set("userinfo", fileContents, policy);
+                    }
+                    this.DialogResult = DialogResult.OK;
+                    //MemoryCache.Default.Set("userinfo",userInfo);
+                    this.Tag = UserCode;
                 }
-                this.DialogResult = DialogResult.OK;
-                //MemoryCache.Default.Set("userinfo",userInfo);
-                this.Tag = UserCode;
+                else
+                {
+                    MessageBox.Show("用户名或密码错误");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("用户名或密码错误");
+                logger.ErrorFormat("具体位置={0},重要参数inSearchName={1},inPageIndex={2},inPageSize={3}", "toolstrackingsystem--FormLogin", ex.Message, ex.StackTrace, ex.Source);
             }
         }
         private void FormLogin_Load(object sender, EventArgs e)

@@ -37,3 +37,4 @@ C:\Users\feng\toolstrackingsystem\toolstrackingsystem\dbentity.toolstrackingsyst
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\dbentity.toolstrackingsystem\bin\Debug\zh-Hans\EntityFramework.resources.dll
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\dbentity.toolstrackingsystem\obj\Debug\dbentity.toolstrackingsystem.dll
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\dbentity.toolstrackingsystem\obj\Debug\dbentity.toolstrackingsystem.pdb
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\dbentity.toolstrackingsystem\obj\Debug\dbentity.toolstrackingsystem.csprojResolveAssemblyReference.cache
