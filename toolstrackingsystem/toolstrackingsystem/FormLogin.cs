@@ -75,10 +75,7 @@ namespace toolstrackingsystem
         private void FormLogin_Load(object sender, EventArgs e)
         {
             this.styleManager1.ManagerStyle = eStyle.Office2010Blue;
-            UnityContainer container = new UnityContainer();
-            UnityConfigurationSection configuration = ConfigurationManager.GetSection(UnityConfigurationSection.SectionName) as UnityConfigurationSection;
-            configuration.Configure(container, "defaultContainer");
-            _userManageService = container.Resolve<IUserManageService>() as UserManageService;
+            _userManageService = Program.container.Resolve<IUserManageService>() as UserManageService;
 
         }
     }

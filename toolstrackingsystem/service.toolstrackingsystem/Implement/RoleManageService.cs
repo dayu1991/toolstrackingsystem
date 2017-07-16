@@ -16,7 +16,7 @@ namespace service.toolstrackingsystem
         }
         public List<dbentity.toolstrackingsystem.Sys_User_Role> GetRoleInfoList()
         {
-            return _roleManageRepository.
+            return new List<dbentity.toolstrackingsystem.Sys_User_Role>();
         }
     }
 }

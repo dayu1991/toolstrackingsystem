@@ -27,7 +27,6 @@
       <PropertyRef Name="RoleID" />
     </Key>
     <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-    <Property Name="UserCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
     <Property Name="MenuID" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
     <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -43,6 +42,7 @@
     <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
     <Property Name="IsActive" Type="Int32" Nullable="false" />
     <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UserRole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="t_PersonInfo">
     <Key>

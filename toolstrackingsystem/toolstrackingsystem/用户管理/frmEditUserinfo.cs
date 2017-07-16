@@ -16,7 +16,7 @@ using ViewEntity.toolstrackingsystem;
 
 namespace toolstrackingsystem
 {
-    public partial class frmEditUserinfo : Office2007Form
+    public partial class frmEditUserinfo : Office2007RibbonForm
     {
         ILog logger = log4net.LogManager.GetLogger(typeof(FormLogin));
         private IUserManageService _userManageService;
@@ -29,7 +29,8 @@ namespace toolstrackingsystem
 
         private void frmEditUserinfo_Load(object sender, EventArgs e)
         {
-            _userManageService = base.container.Resolve<IUserManageService>() as UserManageService;
+            _userManageService = Program.container.Resolve<IUserManageService>() as UserManageService;
+            
         }
         //查找用户
         private void Search_buttonX_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace toolstrackingsystem
             UserList_dataGridViewX.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             UserList_dataGridViewX.Columns[0].HeaderText = "用户编号";
             UserList_dataGridViewX.Columns[1].HeaderText = "用户名称";
-            UserList_dataGridViewX.Columns[2].HeaderText = "用户说明";
+            UserList_dataGridViewX.Columns[2].HeaderText = "用户角色";
             UserList_dataGridViewX.Columns[3].HeaderText = "是否有效";
             UserList_dataGridViewX.Columns[4].HeaderText = "说明";
         }
