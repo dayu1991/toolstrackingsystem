@@ -86,6 +86,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="用户管理\FrmEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="用户管理\FrmEditUser.Designer.cs">
+      <DependentUpon>FrmEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="用户管理\frmEditUserPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="用户管理\frmEditUserPass.Designer.cs">
+      <DependentUpon>frmEditUserPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="用户管理\frmEditUserinfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="用户管理\frmEditUserinfo.Designer.cs">
+      <DependentUpon>frmEditUserinfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +116,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="用户管理\FrmEditUser.resx">
+      <DependentUpon>FrmEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="用户管理\frmEditUserinfo.resx">
+      <DependentUpon>frmEditUserinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="用户管理\frmEditUserPass.resx">
+      <DependentUpon>frmEditUserPass.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -116,7 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="image\" />
-    <Folder Include="用户管理\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dbentity.toolstrackingsystem\dbentity.toolstrackingsystem.csproj">
@@ -126,6 +152,10 @@
     <ProjectReference Include="..\service.toolstrackingsystem\service.toolstrackingsystem.csproj">
       <Project>{ab3213bd-d0fc-45ee-bfaf-3cfdfab10d2f}</Project>
       <Name>service.toolstrackingsystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewEntity.toolstrackingsystem\viewentity.toolstrackingsystem.csproj">
+      <Project>{e8fd79dc-9e78-4280-98da-44c8c31ba6dc}</Project>
+      <Name>viewentity.toolstrackingsystem</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

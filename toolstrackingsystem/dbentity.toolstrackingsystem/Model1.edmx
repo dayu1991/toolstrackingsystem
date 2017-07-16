@@ -29,6 +29,7 @@
           <Property Name="UserCode" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="96" />
           <Property Name="PassWord" Type="varchar" MaxLength="128" />
+          <Property Name="UserRole" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="varchar" MaxLength="256" />
           <Property Name="IsActive" Type="int" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" />
@@ -39,7 +40,7 @@
           </Key>
           <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleCode" Type="varchar" MaxLength="32" Nullable="false" />
-          <Property Name="UserCode" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MenuID" Type="varchar" MaxLength="512" Nullable="false" />
         </EntityType>
         <EntityType Name="t_PersonInfo">
@@ -91,9 +92,9 @@
             <PropertyRef Name="RoleID" />
           </Key>
           <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="UserCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="MenuID" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
           <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Sys_User_Info">
           <Key>
@@ -106,6 +107,7 @@
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Int32" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UserRole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="t_PersonInfo">
           <Key>
@@ -145,9 +147,9 @@
           <EntitySetMapping Name="Sys_User_Role">
             <EntityTypeMapping TypeName="cangku_manage_dbModel.Sys_User_Role">
               <MappingFragment StoreEntitySet="Sys_User_Role">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
                 <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -155,6 +157,7 @@
           <EntitySetMapping Name="Sys_User_Info">
             <EntityTypeMapping TypeName="cangku_manage_dbModel.Sys_User_Info">
               <MappingFragment StoreEntitySet="Sys_User_Info">
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

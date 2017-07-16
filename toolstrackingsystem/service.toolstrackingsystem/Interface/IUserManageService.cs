@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewEntity.toolstrackingsystem;
 
 namespace service.toolstrackingsystem
 {
@@ -11,6 +12,7 @@ namespace service.toolstrackingsystem
     {
         Sys_User_Info GetUserInfo(string UserCode, string Pwd);
         Sys_User_Info GetUserInfo(string UserCode);
+        List<UserInfoEntity> GetUserInfo(string UserCode, string UserName, int IsActive);
         int InsertUserInfo(string UserCode, string UserName, string Password, out Sys_User_Info userInfo);
         List<Sys_User_Info> GetUserInfoList(string UserCode, string DateTimeFrom, string DateTimeTo);
         bool UpdateUserInfo(Sys_User_Info userInfo);

@@ -21,6 +21,7 @@
     <EntitySetMapping Name="Sys_User_Role">
       <EntityTypeMapping TypeName="cangku_manage_dbModel.Sys_User_Role">
         <MappingFragment StoreEntitySet="Sys_User_Role">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="MenuID" ColumnName="MenuID" />
           <ScalarProperty Name="UserCode" ColumnName="UserCode" />

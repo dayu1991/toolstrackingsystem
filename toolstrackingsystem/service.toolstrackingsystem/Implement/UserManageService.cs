@@ -1,19 +1,23 @@
-﻿using dbentity.toolstrackingsystem;
+﻿using Dapper;
+using dbentity.toolstrackingsystem;
 using sqlserver.toolstrackingsystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewEntity.toolstrackingsystem;
 
 namespace service.toolstrackingsystem
 {
     public class UserManageService : IUserManageService
     {
         private readonly IUserManageRepository _userManageRepository;
-        public UserManageService(IUserManageRepository userManageRepository)
+        private readonly IMultiTableQueryRepository _mltiTableQueryRepository;
+        public UserManageService(IUserManageRepository userManageRepository, IMultiTableQueryRepository multiTableQueryRepository)
 	    {
             this._userManageRepository = userManageRepository;
+            this._mltiTableQueryRepository = multiTableQueryRepository;
 	    }
         /// <summary>
         /// 获取用户信息
@@ -72,6 +76,23 @@ namespace service.toolstrackingsystem
         public bool DeleteUser(Sys_User_Info userInfo)
         {
             return _userManageRepository.DeleteUser(userInfo);
+        }
+
+        public List<UserInfoEntity> GetUserInfo(string UserCode, string UserName, int IsActive)
+        {
+            string sql = "select ui.UserCode,ui.UserName,ui.Description,IsActive = case ui.IsActive when 1 then '是' when 0 then '否' end  from Sys_User_Info ui join Sys_User_Role ur on ui.UserRole = ur.RoleCode where 1=1 ";
+            DynamicParameters parameter = new DynamicParameters();
+            if(!string.IsNullOrEmpty(UserCode))
+            {
+                sql += " ui.UserCode = @UserCode ";
+                parameter.Add("UserCode", UserCode);
+            }
+            if (!string.IsNullOrEmpty(UserName))
+            {
+                sql += "ui.UserName = @UserName";
+                parameter.Add("UserName", UserName);
+            }
+            return _mltiTableQueryRepository.QueryList<UserInfoEntity>(sql, parameter).ToList();
         }
     }
 }

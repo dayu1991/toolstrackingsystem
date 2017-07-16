@@ -79,6 +79,7 @@ namespace toolstrackingsystem
             UnityConfigurationSection configuration = ConfigurationManager.GetSection(UnityConfigurationSection.SectionName) as UnityConfigurationSection;
             configuration.Configure(container, "defaultContainer");
             _userManageService = container.Resolve<IUserManageService>() as UserManageService;
+
         }
     }
 }

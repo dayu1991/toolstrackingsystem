@@ -21,5 +21,6 @@ namespace dbentity.toolstrackingsystem
         public string Description { get; set; }
         public int IsActive { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }
+        public string UserRole { get; set; }
     }
 }

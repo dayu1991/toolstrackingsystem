@@ -61,3 +61,7 @@ C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\obj\De
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\obj\Debug\toolstrackingsystem.Properties.Resources.resources
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\obj\Debug\toolstrackingsystem.csproj.GenerateResource.Cache
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\bin\Debug\log4net.dll
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\obj\Debug\toolstrackingsystem.frmEditUserinfo.resources
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\obj\Debug\toolstrackingsystem.frmEditUserPass.resources
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\bin\Debug\ViewEntity.toolstrackingsystem.dll
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\bin\Debug\ViewEntity.toolstrackingsystem.pdb

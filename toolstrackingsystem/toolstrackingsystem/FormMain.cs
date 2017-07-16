@@ -49,6 +49,7 @@ namespace toolstrackingsystem
             string path = "../../image/manage.ico";
             bi.Icon = new Icon(path);
             bi.ImagePosition = eImagePosition.Top;
+            bi.Click += new EventHandler(button_suppliers_Click);
             rb.Items.Add(bi);
             rpanel.Controls.Add(rb);
             #endregion
@@ -71,7 +72,7 @@ namespace toolstrackingsystem
             if (!isOpen)
             {
                 //反射取得子窗体对象。
-                object obj = Assembly.GetExecutingAssembly().CreateInstance("WindowsFormsTest." + sfrmName, false);
+                object obj = Assembly.GetExecutingAssembly().CreateInstance("toolstrackingsystem." + sfrmName, false);
                 //需要强转
                 Form form = (Form)obj;
                 //设置该子窗体不为顶级窗体，否则不能加入到别的控件中
@@ -107,7 +108,7 @@ namespace toolstrackingsystem
 
         private void button_suppliers_Click(object sender, EventArgs e)
         {
-            SetTabShow("供应商档案", "FormSupplyFiles");
+            SetTabShow("客户管理", "frmEditUserinfo");
         }
     }
 }

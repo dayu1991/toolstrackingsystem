@@ -60,9 +60,11 @@
   <ItemGroup>
     <Compile Include="CKConnection.cs" />
     <Compile Include="Implement\MultiTableQueryRepository.cs" />
+    <Compile Include="Implement\RoleManageRepository.cs" />
     <Compile Include="Implement\UserManageRepository.cs" />
     <Compile Include="Interface\IMultiTableQueryRepository.cs" />
     <Compile Include="Interface\IUserManageRepository.cs" />
+    <Compile Include="Interface\IRoleManageRepository.cs" />
     <Compile Include="IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryBase.cs" />

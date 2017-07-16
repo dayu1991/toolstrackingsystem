@@ -11,7 +11,7 @@ namespace sqlserver.toolstrackingsystem
 {
     public class RepositoryBase<T>:IRepositoryBase<T> where T:class
     {
-                //初始化实例对象的数据库操作连接对象
+        //初始化实例对象的数据库操作连接对象
         protected IDbConnection conn = null;// CKConnection.GetConnection();
         public RepositoryBase()
         {

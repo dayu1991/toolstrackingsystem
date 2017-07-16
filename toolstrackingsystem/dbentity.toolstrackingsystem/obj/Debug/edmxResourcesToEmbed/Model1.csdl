@@ -30,6 +30,7 @@
     <Property Name="UserCode" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
     <Property Name="MenuID" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
     <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Sys_User_Info">
     <Key>
