@@ -9,5 +9,9 @@ namespace sqlserver.toolstrackingsystem
 {
     public class RoleManageRepository : RepositoryBase<Sys_User_Role>, IRoleManageRepository
     {
+        public List<Sys_User_Role> GetRoleInfoList()
+        {
+            return base.;
+        }
     }
 }
