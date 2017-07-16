@@ -1,4 +1,5 @@
-﻿using sqlserver.toolstrackingsystem;
+﻿using dbentity.toolstrackingsystem;
+using sqlserver.toolstrackingsystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace service.toolstrackingsystem
         {
             this._roleManageRepository = roleManageRepository;
         }
-        public List<dbentity.toolstrackingsystem.Sys_User_Role> GetRoleInfoList()
+        public List<Sys_User_Role> GetRoleInfoList()
         {
-            return new List<dbentity.toolstrackingsystem.Sys_User_Role>();
+            return _roleManageRepository.GetRoleInfoList();
         }
     }
 }

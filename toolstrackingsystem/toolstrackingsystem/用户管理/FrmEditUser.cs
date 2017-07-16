@@ -9,11 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using ViewEntity.toolstrackingsystem;
+using dbentity.toolstrackingsystem;
+using service.toolstrackingsystem;
+using log4net;
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
 
 namespace toolstrackingsystem
 {
     public partial class FrmEditUser : Office2007Form
     {
+        ILog logger = log4net.LogManager.GetLogger(typeof(FrmEditUser));
+        private IRoleManageService _roleManageService;
         public FrmEditUser()
         {
             InitializeComponent();
@@ -26,13 +33,36 @@ namespace toolstrackingsystem
 
         private void FrmEditUser_Load(object sender, EventArgs e)
         {
+            _roleManageService = Program.container.Resolve<IRoleManageService>() as RoleManageService;
             #region 初始化角色combox
-
+            try
+            {
+                List<Sys_User_Role> roleInfoList = _roleManageService.GetRoleInfoList();
+                //DataTable dt = new DataTable();
+                //dt.Columns.Add("name");
+                //dt.Columns.Add("value");
+                //for (int i = 0; i < roleInfoList.Count; i++)
+                //{
+                //    DataRow dr = dt.NewRow();
+                //    dr[0] = roleInfoList[i].RoleName;
+                //    dr[1] = roleInfoList[i].RoleCode;
+                //    dt.Rows.Add(dr);
+                //}
+                this.role_comboBox.DataSource = roleInfoList;
+                this.role_comboBox.DisplayMember = "RoleName";
+                this.role_comboBox.ValueMember = "RoleCode";
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("具体位置={0},重要参数Message={1},StackTrace={2},Source={3}", "toolstrackingsystem--FrmEditUser", ex.Message, ex.StackTrace, ex.Source);
+            }
             #endregion
-            UserInfoEntity userInfo = (UserInfoEntity)this.Tag;
+            Sys_User_Info userInfo = (Sys_User_Info)this.Tag;
             UserCode_textBox.Text = userInfo.UserCode;
             UserName_textBox.Text = userInfo.UserName;
             Description_textBox.Text = userInfo.Description;
+            role_comboBox.SelectedText = "";
+            role_comboBox.SelectedValue = userInfo.UserRole;
 
         }
     }

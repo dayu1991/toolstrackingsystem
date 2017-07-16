@@ -205,6 +205,7 @@
             this.Controls.Add(this.labelX1);
             this.DoubleBuffered = true;
             this.Name = "FrmEditUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "修改";
             this.Load += new System.EventHandler(this.FrmEditUser_Load);
             this.ResumeLayout(false);

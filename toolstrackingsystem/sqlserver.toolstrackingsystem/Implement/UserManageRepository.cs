@@ -36,9 +36,9 @@ namespace sqlserver.toolstrackingsystem
         public Sys_User_Info GetUserInfo(string UserCode)
         {
             Sys_User_Info entity = new Sys_User_Info();
-            string sql = "SELECT * FROM db_users WHERE UserCode=@UserCode";
+            string sql = "SELECT * FROM Sys_User_Info WHERE UserCode=@UserCode";
             DynamicParameters parameter = new DynamicParameters();
-            parameter.Add("@UserName", UserCode);
+            parameter.Add("UserCode", UserCode);
 
             entity = base.GetModel(sql, parameter);
 

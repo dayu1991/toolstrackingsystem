@@ -13,6 +13,7 @@ using service.toolstrackingsystem;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using ViewEntity.toolstrackingsystem;
+using dbentity.toolstrackingsystem;
 
 namespace toolstrackingsystem
 {
@@ -60,7 +61,37 @@ namespace toolstrackingsystem
         private void UserList_dataGridViewX_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectIndex = e.RowIndex;
+            Sys_User_Info userInfo = new Sys_User_Info();
 
+            userInfo.UserCode = UserList_dataGridViewX.Rows[selectIndex].Cells[0].Value.ToString();
+            userInfo.UserName = UserList_dataGridViewX.Rows[selectIndex].Cells[1].Value.ToString();
+            userInfo.UserRole = UserList_dataGridViewX.Rows[selectIndex].Cells[2].Value.ToString();
+            userInfo.IsActive = UserList_dataGridViewX.Rows[selectIndex].Cells[3].Value.ToString() == "是" ? 1 : 0;
+            userInfo.Description = UserList_dataGridViewX.Rows[selectIndex].Cells[4].Value == null ? "" : UserList_dataGridViewX.Rows[selectIndex].Cells[4].Value.ToString();
+            userInfo = _userManageService.GetUserInfo(UserList_dataGridViewX.Rows[selectIndex].Cells[0].Value.ToString());
+            this.Tag = userInfo;
+        }
+        /// <summary>
+        /// 单击修改用户信息事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Edit_buttonX_Click(object sender, EventArgs e)
+        {
+            Sys_User_Info userInfo = (Sys_User_Info)this.Tag;
+            if (userInfo != null)
+            {
+                FrmEditUser formEditUser =  new FrmEditUser();
+                formEditUser.Tag = userInfo;
+                formEditUser.ShowDialog();
+                if (formEditUser.DialogResult == DialogResult.OK)
+                {
+                    Search_buttonX_Click(sender, e);
+                }
+            }
+            else {
+                MessageBox.Show("请选中一个用户");
+            }
         }
     }
 }

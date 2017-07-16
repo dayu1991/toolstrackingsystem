@@ -9,6 +9,6 @@ namespace sqlserver.toolstrackingsystem
 {
     public interface IRoleManageRepository
     {
-        //List<Sys_User_Role> GetRoleInfoList();
+        List<Sys_User_Role> GetRoleInfoList();
     }
 }

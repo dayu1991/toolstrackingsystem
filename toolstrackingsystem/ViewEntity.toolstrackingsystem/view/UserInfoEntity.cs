@@ -10,7 +10,7 @@ namespace ViewEntity.toolstrackingsystem
     {
         public string UserCode { get; set; }
         public string UserName { get; set; }
-        public string UserRole { get; set; }
+        public string RoleName { get; set; }
         public string IsActive { get; set; }
         public string Description { get; set; }
     }

@@ -365,6 +365,7 @@
             this.Edit_buttonX.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.Edit_buttonX.TabIndex = 1;
             this.Edit_buttonX.Text = "修改";
+            this.Edit_buttonX.Click += new System.EventHandler(this.Edit_buttonX_Click);
             // 
             // Add_buttonX
             // 
@@ -385,7 +386,6 @@
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
-            this.DoubleBuffered = true;
             this.Name = "frmEditUserinfo";
             this.Text = "frmUserinfo";
             this.Load += new System.EventHandler(this.frmEditUserinfo_Load);
