@@ -50,3 +50,5 @@ C:\Users\feng\toolstrackingsystem\toolstrackingsystem\service.toolstrackingsyste
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\service.toolstrackingsystem\obj\Debug\service.toolstrackingsystem.pdb
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\service.toolstrackingsystem\bin\Debug\ViewEntity.toolstrackingsystem.dll
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\service.toolstrackingsystem\bin\Debug\ViewEntity.toolstrackingsystem.pdb
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\service.toolstrackingsystem\bin\Debug\common.toolstrackingsystem.dll
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\service.toolstrackingsystem\bin\Debug\common.toolstrackingsystem.pdb

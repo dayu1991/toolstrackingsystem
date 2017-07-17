@@ -89,7 +89,19 @@ namespace sqlserver.toolstrackingsystem
         /// <returns></returns>
         public bool UpdateUserInfo(Sys_User_Info userInfo)
         {
-            return base.Update(userInfo);
+            string sql = "UPDATE Sys_User_Info SET UserName = @username,UserRole=@userrole,Description = @description ";
+            DynamicParameters parameters = new DynamicParameters();
+            if (!string.IsNullOrEmpty(userInfo.PassWord))
+            {
+                sql += ",Password = @Password ";
+                parameters.Add("Password",userInfo.PassWord);
+            }
+            sql += "WHERE UserCode = @usercode";
+            parameters.Add("username", userInfo.UserName);
+            parameters.Add("userrole", userInfo.UserRole);
+            parameters.Add("description", userInfo.Description);
+            parameters.Add("usercode",userInfo.UserCode);
+            return base.ExecuteSql(sql,parameters)>0;
         }
         /// <summary>
         /// 删除某个用户信息
@@ -102,6 +114,12 @@ namespace sqlserver.toolstrackingsystem
             DynamicParameters parameter = new DynamicParameters();
             parameter.Add("id", userInfo.UserCode);
             return base.ExecuteSql(sql, parameter) > 0;
+        }
+
+
+        public bool InsertUserInfo(Sys_User_Info userInfo)
+        {
+            return base.Add(userInfo)>0;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace toolstrackingsystem
     {
         ILog logger = log4net.LogManager.GetLogger(typeof(FrmEditUser));
         private IRoleManageService _roleManageService;
+        private IUserManageService _userManageService;
         public FrmEditUser()
         {
             InitializeComponent();
@@ -34,20 +35,11 @@ namespace toolstrackingsystem
         private void FrmEditUser_Load(object sender, EventArgs e)
         {
             _roleManageService = Program.container.Resolve<IRoleManageService>() as RoleManageService;
+            _userManageService = Program.container.Resolve<IUserManageService>() as UserManageService;
             #region 初始化角色combox
             try
             {
                 List<Sys_User_Role> roleInfoList = _roleManageService.GetRoleInfoList();
-                //DataTable dt = new DataTable();
-                //dt.Columns.Add("name");
-                //dt.Columns.Add("value");
-                //for (int i = 0; i < roleInfoList.Count; i++)
-                //{
-                //    DataRow dr = dt.NewRow();
-                //    dr[0] = roleInfoList[i].RoleName;
-                //    dr[1] = roleInfoList[i].RoleCode;
-                //    dt.Rows.Add(dr);
-                //}
                 this.role_comboBox.DataSource = roleInfoList;
                 this.role_comboBox.DisplayMember = "RoleName";
                 this.role_comboBox.ValueMember = "RoleCode";
@@ -59,11 +51,36 @@ namespace toolstrackingsystem
             #endregion
             Sys_User_Info userInfo = (Sys_User_Info)this.Tag;
             UserCode_textBox.Text = userInfo.UserCode;
+            userInfo = _userManageService.GetUserInfo(userInfo.UserCode);
             UserName_textBox.Text = userInfo.UserName;
             Description_textBox.Text = userInfo.Description;
             role_comboBox.SelectedText = "";
             role_comboBox.SelectedValue = userInfo.UserRole;
 
+        }
+        /// <summary>
+        /// 保存修改信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Save_Edit_button_Click(object sender, EventArgs e)
+        {
+            Sys_User_Info userInfo = new Sys_User_Info();
+            userInfo.UserCode = UserCode_textBox.Text;
+            userInfo.UserName = UserName_textBox.Text;
+            userInfo.Description = Description_textBox.Text;
+            userInfo.PassWord = Password_textBox.Text;
+            userInfo.UserRole = role_comboBox.SelectedValue.ToString();
+            if (_userManageService.UpdateUserInfo(userInfo))
+            {
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Dispose();
+            }
+        }
+
+        private void Cancel_button_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

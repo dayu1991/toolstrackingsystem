@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using common.toolstrackingsystem;
+using Dapper;
 using dbentity.toolstrackingsystem;
 using sqlserver.toolstrackingsystem;
 using System;
@@ -27,6 +28,7 @@ namespace service.toolstrackingsystem
         /// <returns></returns>
         public Sys_User_Info GetUserInfo(string UserCode, string Pwd)
         {
+            Pwd = CommonHelper.GetMd5(Pwd);
             return _userManageRepository.GetUserInfo(UserCode, Pwd);
         }
         /// <summary>
@@ -66,6 +68,10 @@ namespace service.toolstrackingsystem
         /// <returns></returns>
         public bool UpdateUserInfo(Sys_User_Info userInfo)
         {
+            if (!string.IsNullOrEmpty(userInfo.PassWord))
+            {
+                userInfo.PassWord = CommonHelper.GetMd5(userInfo.PassWord);
+            }
             return _userManageRepository.UpdateUserInfo(userInfo);
         }
         /// <summary>
@@ -84,15 +90,21 @@ namespace service.toolstrackingsystem
             DynamicParameters parameter = new DynamicParameters();
             if(!string.IsNullOrEmpty(UserCode))
             {
-                sql += " ui.UserCode = @UserCode ";
-                parameter.Add("UserCode", UserCode);
+                sql += " AND ui.UserCode LIKE @UserCode ";
+                
+                parameter.Add("UserCode", string.Format("%{0}%",UserCode));
             }
             if (!string.IsNullOrEmpty(UserName))
             {
-                sql += "ui.UserName = @UserName";
-                parameter.Add("UserName", UserName);
+                sql += " AND ui.UserName LIKE @UserName";
+                parameter.Add("UserName", string.Format("%{0}%", UserName));
             }
             return _mltiTableQueryRepository.QueryList<UserInfoEntity>(sql, parameter).ToList();
+        }
+        public bool InsertUserInfo(Sys_User_Info userInfo)
+        {
+            userInfo.PassWord = CommonHelper.GetMd5(userInfo.PassWord);
+            return _userManageRepository.InsertUserInfo(userInfo);
         }
     }
 }

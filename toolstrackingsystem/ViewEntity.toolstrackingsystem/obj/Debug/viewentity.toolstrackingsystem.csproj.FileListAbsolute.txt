@@ -2,4 +2,3 @@ C:\Users\feng\toolstrackingsystem\toolstrackingsystem\ViewEntity.toolstrackingsy
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\ViewEntity.toolstrackingsystem\bin\Debug\ViewEntity.toolstrackingsystem.pdb
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\ViewEntity.toolstrackingsystem\obj\Debug\ViewEntity.toolstrackingsystem.dll
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\ViewEntity.toolstrackingsystem\obj\Debug\ViewEntity.toolstrackingsystem.pdb
-C:\Users\feng\toolstrackingsystem\toolstrackingsystem\ViewEntity.toolstrackingsystem\obj\Debug\viewentity.toolstrackingsystem.csprojResolveAssemblyReference.cache

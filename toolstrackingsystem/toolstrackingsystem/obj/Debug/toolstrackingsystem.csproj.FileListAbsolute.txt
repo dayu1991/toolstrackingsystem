@@ -66,3 +66,5 @@ C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\obj\De
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\bin\Debug\ViewEntity.toolstrackingsystem.dll
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\bin\Debug\ViewEntity.toolstrackingsystem.pdb
 C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\obj\Debug\toolstrackingsystem.FrmEditUser.resources
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\bin\Debug\common.toolstrackingsystem.dll
+C:\Users\feng\toolstrackingsystem\toolstrackingsystem\toolstrackingsystem\bin\Debug\common.toolstrackingsystem.pdb

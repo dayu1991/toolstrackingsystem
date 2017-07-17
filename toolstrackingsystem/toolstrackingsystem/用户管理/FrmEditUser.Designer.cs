@@ -140,6 +140,7 @@
             this.Password_textBox.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.Password_textBox.Location = new System.Drawing.Point(107, 202);
             this.Password_textBox.Name = "Password_textBox";
+            this.Password_textBox.PasswordChar = '*';
             this.Password_textBox.PreventEnterBeep = true;
             this.Password_textBox.Size = new System.Drawing.Size(145, 21);
             this.Password_textBox.TabIndex = 7;
@@ -154,6 +155,7 @@
             this.Save_Edit_button.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.Save_Edit_button.TabIndex = 8;
             this.Save_Edit_button.Text = "保存";
+            this.Save_Edit_button.Click += new System.EventHandler(this.Save_Edit_button_Click);
             // 
             // Cancel_button
             // 
@@ -165,6 +167,7 @@
             this.Cancel_button.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.Cancel_button.TabIndex = 9;
             this.Cancel_button.Text = "取消";
+            this.Cancel_button.Click += new System.EventHandler(this.Cancel_button_Click);
             // 
             // labelX5
             // 
@@ -204,6 +207,8 @@
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.labelX1);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "修改";
